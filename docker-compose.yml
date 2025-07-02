@@ -28,7 +28,7 @@ services:
     restart: always
 
   portfolio:
-    image: seu_usuario_dockerhub/portfolio:latest
+    image: elizaaugusta/portfolio:latest
     container_name: portfolio
     environment:
       - VIRTUAL_HOST=portfolio.dominio.com
