@@ -29,6 +29,7 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/portfolio:latest
 
+
       - name: Copy docker-compose.yml to server
         uses: appleboy/scp-action@v0.1.7
         with:
@@ -36,7 +37,8 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           source: "docker-compose.yml"
-          target: "/portfolio"
+          target: "/home/${{ secrets.SERVER_USER }}/portfolio"
+
 
       - name: Deploy to remote server via SSH
         uses: appleboy/ssh-action@v1.0.3
@@ -45,5 +47,7 @@ jobs:
           username: ${{ secrets.SERVER_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
+            cd /home/${{ secrets.SERVER_USER }}/portfolio
             docker pull ${{ secrets.DOCKERHUB_USERNAME }}/portfolio:latest
             docker-compose -f docker-compose.yml up -d
+
