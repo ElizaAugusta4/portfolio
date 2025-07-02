@@ -8,7 +8,7 @@ Repositório criado para demonstrar meu Portfólio com meus projetos e conhecime
 - **Dockerfile**: Define a imagem Docker para o projeto.
 - **nginx.conf**: Configuração do Nginx para servir o portfólio.
 - **index.html**: Ponto de entrada do site do portfólio.
-- **.github/workflows/docker.yml**: Configuração do GitHub Actions para automação de build e push da imagem Docker.
+- **.github/workflows/docker.yml**: Configuração do GitHub Actions para automação de build e push da imagem Docker
 
 ## Como Executar
 1. Clone o repositório.
